@@ -3,24 +3,25 @@
 using namespace std;
 #include <limits>
 // Bibliotecas gerais
+// Incluindo arquivos
 #include "../OpcoesHPP/opcao3.hpp"
 #include "../ClassesHPP/alunos.hpp"
 #include "../ClassesHPP/pessoas.hpp"
 #include "../ClassesHPP/professores.hpp"
 
-    /*PROFESSOR*/
+/*PROFESSOR*/
 
 // Pesquisar Professor por nome
 void pesquisarProfessorNome (Professores *professor[])
 {
     cout << "\n\nPesquisar professor por nome";
     string nome;
-    
+
     cout << "\nDigite o nome do professor que deseja procurar: ";
     cin.ignore();
     getline(cin, nome);
-    bool achou= false;
-    for (int i=0; i<Professores::TAMPROFESSOR; i++)
+    bool achou = false;
+    for (int i = 0; i < Professores::TAMPROFESSOR; i++)
     {
         if(professor[i] != nullptr && nome == professor[i]->getNome())
         {
@@ -31,12 +32,12 @@ void pesquisarProfessorNome (Professores *professor[])
                  << " - CPF: " << professor[i]->getCpf()
                  << " - Título: " << professor[i]->getTitulacao() << endl;
             achou = true;
-        }
-    }
+        } // Fim do if
+    } // Fim do for
     if(!achou) cout << "\nNão existe ninguém com esse nome";
-}
+} // Fim da função pesquisarProfessorNome
 
-    /*ALUNO*/
+/*ALUNO*/
 
 // Pesquisar Aluno por nome
 void pesquisarAlunoNome(Alunos *aluno[])
@@ -46,8 +47,8 @@ void pesquisarAlunoNome(Alunos *aluno[])
     cout << "\nDigite o nome do aluno que deseja procurar: ";
     cin.ignore();
     getline(cin, nome);
-    bool achou= false;
-    for (int i=0; i<Alunos::TAMALUNO; i++)
+    bool achou = false;
+    for (int i = 0; i < Alunos::TAMALUNO; i++)
     {
         if(aluno[i] != nullptr && nome == aluno[i]->getNome())
         {
@@ -58,13 +59,13 @@ void pesquisarAlunoNome(Alunos *aluno[])
                  << " - CPF: " << aluno[i]->getCpf()
                  << " - Matrícula: " << aluno[i]->getNumeroMatricula() << endl;
             achou = true;
-        }
-    }
+        } // Fim do if
+    } // Fim do for
     if(!achou) cout << "\nNão existe ninguém com esse nome";
-}
+} // Fim da função pesquisarAlunoNome
 
-    /*GERAL*/
-    
+/*GERAL*/
+
 // Opções opção 3
 void opcoesOpcao3(int x, Alunos *aluno[], Professores *professor[])
 {
@@ -80,31 +81,30 @@ void opcoesOpcao3(int x, Alunos *aluno[], Professores *professor[])
         break;
     default:
         break;
-    }
-}
+    } // Fim do switch
+} // Fim da função opcoesOpcao3
+
 // Escolha opção 3
 int escolhaOpcao3()
 {
     int x;
-    bool erro=true;
+    bool erro = true;
     while(erro)
     {
         cout << "\n\nDigite o que deseja: ";
         cin >> x;
-        if(x>=0 && x<=2) erro= false;
+        if(x >= 0 && x <= 2) erro = false;
         else cout << "Somente números de 0 a 2\a";
-    }
+    } // Fim do while
     return x;
-}
+} // Fim da função escolhaOpcao3
+
 // Opção 3
 void opcao3(Alunos *aluno[], Professores *professor[])
 {
     cout << "\n\n3.0 – Voltar ao menu anterior[0]";
     cout << "\n3.1 - Pesquisar Professores por nome[1]";
     cout << "\n3.2 - Pesquisar Alunos por nome[2]";
-    int x= escolhaOpcao3();
+    int x = escolhaOpcao3();
     opcoesOpcao3(x, aluno, professor);
-}
-
-
-
+} // Fim da função opcao3

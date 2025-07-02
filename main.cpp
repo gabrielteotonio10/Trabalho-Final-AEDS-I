@@ -26,20 +26,20 @@ int main ()
         pessoa[i] = nullptr;
         aluno[i] = nullptr;
         professor[i] = nullptr;
-    }
+    } // Fim do for
     registrandoPessoas(pessoa, aluno, professor);
     instrcoes();
-    int x= escolha();
+    int x = escolha();
     cout << "\n\nBem-vindo, siga as instruções: ";
-    while (x!=0)
+    while (x != 0)
     {
         opcoes(x, pessoa, aluno, professor);
         cout << "\n\n   P: " << Professores::TAMPROFESSOR;
         cout << "\n\n   A: " << Alunos::TAMALUNO;
         instrcoes();
-        x= escolha();
-    }
+        x = escolha();
+    } // Fim do while
     fechamento ();
     liberarMemoria(pessoa, aluno, professor);
     return 0;
-}
+} // Fim da função main

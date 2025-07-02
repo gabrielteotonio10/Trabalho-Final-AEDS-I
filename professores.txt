@@ -12,17 +12,3 @@ Cláudia
 234.234.234-23
 Mestre
 xxxxx
-afd
-10
-12
-2000
-13
-Doutor
-xxxxx
-dfsg
-9
-9
-2009
-1234
-Especialista
-xxxxx
