@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <cstring>
 #include <cstdlib>
+#include <windows.h>
 // Incluindo arquivos
 #include "ClassesHPP/pessoas.hpp"
 #include "ClassesHPP/alunos.hpp"
@@ -16,6 +17,8 @@ using namespace std;
 //Main
 int main ()
 {
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     setlocale(LC_ALL, "Portuguese");
     system("chcp 65001 > nul");
     Pessoas *pessoa[_MAX];
@@ -34,8 +37,6 @@ int main ()
     while (x != 0)
     {
         opcoes(x, pessoa, aluno, professor);
-        cout << "\n\n   P: " << Professores::TAMPROFESSOR;
-        cout << "\n\n   A: " << Alunos::TAMALUNO;
         instrcoes();
         x = escolha();
     } // Fim do while

@@ -58,8 +58,9 @@ void cadastrarAluno(Pessoas *pessoa[], Alunos *aluno[])
     // Adicionando
     try
     {
-        aluno[Alunos::TAMALUNO] = new Alunos(nome, dia, mes, ano, cpf, matricula);
-        escrevendoAlunoArquivo(aluno[Alunos::TAMALUNO]);
+        int x= Alunos::TAMALUNO;
+        aluno[x] = new Alunos(nome, dia, mes, ano, cpf, matricula);
+        escrevendoAlunoArquivo(aluno[x]);
         // Mensagens
         cout << "\nPessoa cadastrada com sucesso!";
         cout << endl << "Total de pessoas: " << Pessoas::TAMPES;
@@ -139,8 +140,9 @@ void cadastrarProfessor(Pessoas *pessoa[], Professores *professor[])
     // Adicionando
     try
     {
-        professor[Professores::TAMPROFESSOR] = new Professores(nome, dia, mes, ano, cpf, titulo);
-        escrevendoProfessorArquivo(professor[Professores::TAMPROFESSOR]);
+        int x= Professores::TAMPROFESSOR;
+        professor[x] = new Professores(nome, dia, mes, ano, cpf, titulo);
+        escrevendoProfessorArquivo(professor[x]);
         // Mensagens
         cout << "\nPessoa cadastrada com sucesso!";
         cout << endl << "Total de pessoas: " << Pessoas::TAMPES;

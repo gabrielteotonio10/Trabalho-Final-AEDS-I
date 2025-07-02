@@ -34,15 +34,16 @@ int posicaoProfessor(string cpf, Professores *professor[])
 // excluindoProfessor
 void excluindoProfessor(Professores *professor[], int x)
 {
+    int tamanhoAtual= Professores::TAMPROFESSOR;
     if (professor[x] != nullptr) {
         delete professor[x];
         professor[x] = nullptr;
     } // Fim do if
-    for (int i = x; i < Professores::TAMPROFESSOR -1; i++)
+    for (int i = x; i < tamanhoAtual -1; i++)
     {
         professor[i] = professor[i+1];
     } // Fim do for
-    professor[Professores::TAMPROFESSOR -1] = nullptr;
+    professor[tamanhoAtual -1] = nullptr;
 } // Fim da função excluindoProfessor
 
 // apagandoProfessoresArquivo
@@ -77,23 +78,28 @@ void excluirProfessor(Professores *professor[])
     cout << "\n\nExcluir um professor";
     string cpf;
     cout << "\nDigite o CPF do professor que deseja excluir[0 para sair]: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, cpf);
     if(cpf == "0") return;
     if(pesquisaCpfProfessor(cpf, professor))
     {
-        string teste;
-        cout << "Tem certeza que deseja excluir " << cpf << " ?[S/N]: ";
-        cin >> teste;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        if(teste == "S" || teste == "s")
+        bool erro= true;
+        while (erro)
         {
-            int x = posicaoProfessor(cpf, professor);
-            excluindoProfessor(professor, x);
-            apagandoProfessoresArquivo();
-            reescrevendoArquivoProfessor(professor);
-            cout << "\nProfessor excluido com sucesso!";
-        } // Fim do if (teste == "S" || teste == "s")
+            string teste;
+            cout << "Tem certeza que deseja excluir " << cpf << " ?[S/N]: ";
+            cin >> teste;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            if(teste == "S" || teste == "s")
+            {
+                int x = posicaoProfessor(cpf, professor);
+                excluindoProfessor(professor, x);
+                apagandoProfessoresArquivo();
+                reescrevendoArquivoProfessor(professor);
+                cout << "\nProfessor excluido com sucesso!";
+                erro= false;
+            } // Fim do if (teste == "S" || teste == "s")
+            else cout << "\nApenas S ou N";
+        }
     } // Fim do if (pesquisaCpfProfessor(cpf, professor))
     else cout << "Não existe ninguém com esse CPF, confira se digitou certo";
 } // Fim da função excluirProfessor
@@ -123,15 +129,16 @@ int posicaoAluno(string cpf, Alunos *aluno[])
 // excluindoAluno
 void excluindoAluno(Alunos *aluno[], int x)
 {
+    int tamanhoAtual= Alunos::TAMALUNO;
     if (aluno[x] != nullptr) {
         delete aluno[x];
         aluno[x] = nullptr;
     } // Fim do if
-    for (int i = x; i < Alunos::TAMALUNO -1; i++)
+    for (int i = x; i < tamanhoAtual -1; i++)
     {
         aluno[i] = aluno[i+1];
     } // Fim do for
-    aluno[Alunos::TAMALUNO -1] = nullptr;
+    aluno[tamanhoAtual -1] = nullptr;
 } // Fim da função excluindoAluno
 
 // apagandoAlunosArquivo
@@ -166,7 +173,6 @@ void excluirAluno(Alunos *aluno[])
     cout << "\n\nExcluir um aluno";
     string cpf;
     cout << "\nDigite o CPF do aluno que deseja excluir[0 para sair]: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, cpf);
     if(cpf == "0") return;
     if(pesquisaCpfAluno(cpf, aluno))
