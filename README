@@ -1,1 +1,0 @@
-g++ main.cpp ClassesCPP/alunos.cpp ClassesCPP/data.cpp ClassesCPP/pessoas.cpp ClassesCPP/professores.cpp FuncoesGeraisCPP/geral.cpp OpcoesCPP/opcao1.cpp OpcoesCPP/opcao2.cpp OpcoesCPP/opcao3.cpp OpcoesCPP/opcao4.cpp OpcoesCPP/opcao5.cpp OpcoesCPP/opcao6.cpp OpcoesCPP/opcao7.cpp -Wall -o teste.exe
